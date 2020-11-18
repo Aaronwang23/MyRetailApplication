@@ -3,6 +3,8 @@ package com.example.MyRetail.controller;
 import com.example.MyRetail.model.Product;
 import com.example.MyRetail.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.InputMismatchException;
 
@@ -14,10 +16,15 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping(value = "/{id}")
-    public Product getProduct(@PathVariable("id") String id){
-        return productService.getProduct(id);
+    public ResponseEntity getProduct(@PathVariable("id") String id){
+        try {
+            return new ResponseEntity<>(productService.getProduct(id), HttpStatus.ACCEPTED);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return new ResponseEntity<>("", HttpStatus.ACCEPTED);
     }
-    
+
     @PutMapping(value = "/{id}")
     public Product putProduct(@RequestBody Product productPrice, @PathVariable("id") String id) {
         if(id.equals(productPrice.id)) {
