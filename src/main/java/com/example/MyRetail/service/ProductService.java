@@ -16,6 +16,9 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
+    /**
+     * Method using spring WebClient to perform the http request from the RedSky API and map the json object to "product" which is then returned
+     */
     public Product getProduct(String id){
         Product product = productRepository.findByid(id);
         ObjectMapper mapper = new ObjectMapper();
@@ -39,6 +42,9 @@ public class ProductService {
         return product;
     }
 
+    /**
+     * Method to save product information to MongoDB.
+     */
     public Product save(Product product, String id) {
 
         if(productRepository.findByid(id)!=null) {

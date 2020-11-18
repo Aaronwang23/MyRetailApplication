@@ -17,8 +17,7 @@ public class ProductController {
     public Product getProduct(@PathVariable("id") String id){
         return productService.getProduct(id);
     }
-
-
+    
     @PutMapping(value = "/{id}")
     public Product putProduct(@RequestBody Product productPrice, @PathVariable("id") String id) {
         if(id.equals(productPrice.id)) {
