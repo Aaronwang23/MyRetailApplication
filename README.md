@@ -35,3 +35,12 @@ You can now navigate to http://localhost:8080/products/ and append an id. If the
 ```
 
 ##  Gallery
+
+#### Running the API and showing a successful GET request using Postman
+![Get Request](https://i.imgur.com/tyVqzqI.png)
+
+#### Using postman to PUT request the pricing information in to the database
+![Before Put Request](https://i.imgur.com/2ZCrXEP.png)
+
+#### Using postman again to make another PUT request updating the pricing details of the item
+![After Put Request](https://i.imgur.com/WhmGs7x.jpg)
