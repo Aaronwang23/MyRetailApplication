@@ -25,7 +25,7 @@ $ git clone https://github.com/aaronwang23/MyRetailApplication.git
 3. On the MongoDB server connect to port 27017 and create a new Database called "ProductStore" and the collection name "Product"
 4. Run the project in the IDE 
 
-You can now navigate to http://localhost:8080/products/ and append an id. If the id exists in the Target Redsky API then making a GET call will return you details of the product id including the id, title, and pricing details. You can update the pricing details by making a PUT call and in the body, the changes of the pricing detail as seen below. 
+You can now navigate to http://localhost:8080/product/ and append an id. If the id exists in the Target Redsky API then making a GET call will return you details of the product id including the id, title, and pricing details. You can update the pricing details by making a PUT call and in the body, the changes of the pricing detail as seen below. 
 ```
 {
 "id": "544561192",
