@@ -16,7 +16,7 @@ MyRetail is a RESTFUL service that retrieves product and price details by ID as 
 
 Clone the repository
 ```
-$ git clone https://github.com/aaronwang23/MyRetail.git
+$ git clone https://github.com/aaronwang23/MyRetailApplication.git
 ```
 
 ### Running Repository
