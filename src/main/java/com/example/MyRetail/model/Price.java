@@ -10,4 +10,7 @@ import lombok.Setter;
 public class Price {
     private String currentPrice;
     private String currencyCode;
+
+    public Price() {}
+
 }

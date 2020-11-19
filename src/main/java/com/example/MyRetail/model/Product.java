@@ -15,4 +15,12 @@ public class Product {
     public String id;
     public String title;
     public Price price;
+
+    public Product() {}
+
+    public Product (String id, String title){
+        this.id = id;
+        this.title = title;
+    }
+
 }

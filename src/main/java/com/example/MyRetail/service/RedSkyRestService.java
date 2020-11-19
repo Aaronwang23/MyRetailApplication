@@ -1,9 +1,7 @@
 package com.example.MyRetail.service;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 @Service
 public class RedSkyRestService {
@@ -17,10 +15,6 @@ public class RedSkyRestService {
         return webClient.get()
                 .uri(redSkyUrl + id + redSkyParameterUrl)
                 .retrieve()
-                .onStatus(HttpStatus::is4xxClientError,
-                        error -> Mono.error(new RuntimeException("API not found")))
-                .onStatus(HttpStatus::is5xxServerError,
-                        error -> Mono.error(new RuntimeException("Server is not responding")))
                 .bodyToMono(String.class)
                 .block();
     }

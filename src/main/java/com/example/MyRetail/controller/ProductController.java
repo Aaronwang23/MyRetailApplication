@@ -6,11 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.InputMismatchException;
 
 @RestController
 @RequestMapping("/product")
-public class ProductController {
+public class ProductController{
 
     @Autowired
     ProductService productService;
@@ -20,17 +19,17 @@ public class ProductController {
         try {
             return new ResponseEntity<>(productService.getProduct(id), HttpStatus.ACCEPTED);
         }catch (Exception e){
-            System.out.println(e);
+            return new ResponseEntity<>("", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>("", HttpStatus.ACCEPTED);
     }
 
     @PutMapping(value = "/{id}")
-    public Product putProduct(@RequestBody Product productPrice, @PathVariable("id") String id) {
-        if(id.equals(productPrice.id)) {
-            return productService.save(productPrice, id);
+    public ResponseEntity putProduct(@RequestBody Product product, @PathVariable("id") String id) {
+        try {
+            return new ResponseEntity<>(productService.save(product, id), HttpStatus.ACCEPTED);
+        }catch (Exception e){
+            return new ResponseEntity<>("Error Occurred", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        throw new InputMismatchException("Object Id does not match Id in URL");
     }
 
 }
